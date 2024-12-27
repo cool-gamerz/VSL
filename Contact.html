@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        .main {
+            padding: 20px;
+            background: #ffffff;
+            margin-top: 10px;
+            box-shadow: 0px 0px 10px 0px #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form label {
+            margin: 10px 0 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            padding: 10px;
+            background: #35424a;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .contact-form button:hover {
+            background: #e8491d;
+        }
+
+        .map {
+            margin-top: 20px;
+        }
+
+        footer {
+            background: #35424a;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        @media(max-width: 768px) {
+            header ul {
+                text-align: center;
+            }
+
+            header li {
+                display: block;
+                padding: 10px 0;
+            }
+
+            .main {
+                width: 95%;
+                margin: 10px auto;
+            }
+
+            .map {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <ul>
+                <li><a href="Index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Virtual_lab.html">Lab</a></li>
+                <li><a href="Tc.html" target="_blank" rel="noopener noreferrer">Terms & Conditions</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container main">
+        <h2>Get in Touch</h2>
+        <form class="contact-form" id="contactForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject.." required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write something.." style="height:200px"
+                required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="map">
+            <h2>Our Location</h2>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Virtual Science Lab</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the default form submission behavior
+    
+            // Get form data
+            var formData = new FormData(this);
+    
+            // Send form data to the server using AJAX
+            fetch('https://jsonplaceholder.typicode.com/posts', { // Replace this URL with your own server endpoint
+                method: 'POST', // Use the POST method to send data
+                body: formData // Pass the form data as the body of the request
+            })
+            .then(response => {
+                if (response.ok) { // Check if the response was successful
+                    alert('Feedback submitted successfully!'); // Show a success message
+                    document.getElementById('contactForm').reset(); // Reset the form
+                } else {
+                    alert('Error submitting feedback. Please try again later.'); // Show an error message
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error); // Log any errors to the console
+                alert('Error submitting feedback. Please try again later.'); // Show an error message
+            });
+        });
+    </script>
+    
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+</body>
+
+</html>

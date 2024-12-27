@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Science Lab</title>
+  <link rel="stylesheet" href="Virtuallab.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="navbar-logo">Virtual Science Lab</a>
+      <ul class="navbar-menu">
+        <li class="navbar-item"><a href="Index.html" class="navbar-link">Home</a></li>
+        <li class="navbar-item"><a href="About.html" class="navbar-link">About</a></li>
+        <li class="navbar-item"><a href="Contact.html" class="navbar-link">Contact</a></li>
+        <li class="navbar-item"><a href="Tc.html" class="navbar-link">Terms & Conditions</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="lab-container">
+    <h1>Virtual Science Lab</h1>
+  </div>
+
+  <div class="container">
+    <div class="box" style="background: linear-gradient(135deg, #ff6a00, #ee0979); color: black;">
+      <span></span>
+      <div class="content">
+        <h2>Simple Pendulum</h2>
+        <p>The Simple pendulum experiment</p>
+        <button id="startPendulum">Simple Pendulum</button>
+        <br>
+        <label for="unit">Select Length Unit For Simple Pendulum:</label>
+        <select id="unit">
+          <option value="meters">Meters</option>
+          <option value="centimeters">Centimeters</option>
+          <option value="feet">Feet</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="box" style="background: linear-gradient(135deg, #0072ff, #00c6ff); color: black;">
+      <span></span>
+      <div class="content">
+        <h2>Wave Length</h2>
+        <p>Wave Length Experiment</p>
+        <button id="startWave">Wave Length Experiment</button>
+      </div>
+    </div>
+
+    <div class="box" style="background: linear-gradient(135deg, #00ff87, #60efff); color: black;">
+      <span></span>
+      <div class="content">
+        <h2>Work Calculation</h2>
+        <p>Calculate Work done</p>
+        <button id="startWork">Work Calculation</button>
+      </div>
+    </div>
+
+    <div class="box" style="background: linear-gradient(135deg, #ff61a6, #ff8964); color: black;">
+      <span></span>
+      <div class="content">
+        <h2>Power Calculation</h2>
+        <p>Calculate Power</p>
+        <button id="startPower">Power Calculation</button>
+      </div>
+    </div>
+
+    <div class="box" style="background: linear-gradient(135deg, #f093fb, #f5576c); color: black;">
+      <span></span>
+      <div class="content">
+        <h2>Kinetic Energy</h2>
+        <p>Calculate Kinetic Energy</p>
+        <button id="startKineticEnergy">Kinetic Energy Calculation</button>
+      </div>
+    </div>
+
+    <div class="box" style="background: linear-gradient(135deg, #ff00847d, #d308ed); color: black;">
+      <span></span>
+      <div class="content">
+        <h2>Potential Energy</h2>
+        <p>Calculate Potential Energy</p>
+        <button id="startPotentialEnergy">Potential Energy Calculation</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="results-container">
+    <div class="results-box">
+      <h2>Result</h2>
+      <p>
+        <div id="Simplependulumresults"></div>
+        <div id="wavelengthResults"></div>
+        <div id="workResults"></div>
+        <div id="powerResults"></div>
+        <div id="kineticEnergyResults"></div>
+        <div id="potentialEnergyResults"></div>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('startPendulum').addEventListener('click', function () {
+      clearResults();
+      runPendulumExperiment();
+    });
+
+    document.getElementById('startWave').addEventListener('click', function () {
+      clearResults();
+      runWaveExperiment();
+    });
+
+    document.getElementById('startWork').addEventListener('click', function () {
+      clearResults();
+      runWorkCalculation();
+    });
+
+    document.getElementById('startPower').addEventListener('click', function () {
+      clearResults();
+      runPowerCalculation();
+    });
+
+    document.getElementById('startKineticEnergy').addEventListener('click', function () {
+      clearResults();
+      runKineticEnergyCalculation();
+    });
+
+    document.getElementById('startPotentialEnergy').addEventListener('click', function () {
+      clearResults();
+      runPotentialEnergyCalculation();
+    });
+
+    function clearResults() {
+      document.getElementById('Simplependulumresults').innerHTML = '';
+      document.getElementById('wavelengthResults').innerHTML = '';
+      document.getElementById('workResults').innerHTML = '';
+      document.getElementById('powerResults').innerHTML = '';
+      document.getElementById('kineticEnergyResults').innerHTML = '';
+      document.getElementById('potentialEnergyResults').innerHTML = '';
+    }
+
+    function runPendulumExperiment() {
+      const unit = document.getElementById('unit').value;
+      let result = `Pendulum experiment started with unit: ${unit}`;
+      document.getElementById('Simplependulumresults').innerHTML = result;
+    }
+
+    function runWaveExperiment() {
+      let result = 'Wave length experiment started';
+      document.getElementById('wavelengthResults').innerHTML = result;
+    }
+
+    function runWorkCalculation() {
+      let force = prompt("Enter force (in Newtons): ");
+      let distance = prompt("Enter distance (in meters): ");
+      let work = force * distance;
+      let result = `Work done: ${work} Joules (using Work = Force x Distance)`;
+      document.getElementById('workResults').innerHTML = result;
+    }
+
+    function runPowerCalculation() {
+      let work = prompt("Enter work done (in Joules): ");
+      let time = prompt("Enter time (in seconds): ");
+      let power = work / time;
+      let result = `Power: ${power} Watts (using Power = Work / Time)`;
+      document.getElementById('powerResults').innerHTML = result;
+    }
+
+    function runKineticEnergyCalculation() {
+      let mass = prompt("Enter mass (in kilograms): ");
+      let velocity = prompt("Enter velocity (in meters per second): ");
+      let kineticEnergy = 0.5 * mass * velocity * velocity;
+      let result = `Kinetic Energy: ${kineticEnergy} Joules (using KE = 0.5 x mass x velocity^2)`;
+      document.getElementById('kineticEnergyResults').innerHTML = result;
+    }
+
+    function runPotentialEnergyCalculation() {
+      let mass = prompt("Enter mass (in kilograms): ");
+      let height = prompt("Enter height (in meters): ");
+      let g = 9.8; // acceleration due to gravity in m/s^2
+      let potentialEnergy = mass * g * height;
+      let result = `Potential Energy: ${potentialEnergy} Joules (using PE = mass x gravity x height)`;
+      document.getElementById('potentialEnergyResults').innerHTML = result;
+    }
+  </script>
+
+  <script src="virtuallab.js"></script>
+</body>
+
+</html>

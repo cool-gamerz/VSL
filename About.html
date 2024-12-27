@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 100px 20px 50px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('background.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .nav-area {
+            list-style: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .nav-area li {
+            display: inline;
+        }
+
+        .nav-area li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .nav-area li a:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .quote {
+            font-size: 24px;
+            font-style: italic;
+            margin-top: 100px;
+            padding: 20px;
+            border-left: 4px solid #fff;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .section {
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 1px solid #444;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #fff;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            font-size: 20px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .section ul li:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .member-details {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        .member-details p {
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .member-details p:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .quote {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+
+            .section ul li,
+            .member-details p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <ul class="nav-area">
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="Virtual_lab.html">LAB</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+            <li><a href="tc.html">Terms/Conditions</a></li>
+        </ul>
+        <div class="quote">
+            "Coding is not just code, that is a live thing to serve everyone!" – Ming Song
+        </div>
+    </header>
+    <div class="section">
+        <h2>Our Members</h2>
+        <ul>
+            <li>1. Ankur Raj from class 10E</li>
+            <li>2. Vaishnavi Vimal from class 10B</li>
+            <li>3. Anman Raj Sharma class 12</li>
+        </ul>
+    </div>
+    <div class="section member-details">
+        <h2>About Our Members</h2>
+        <p><strong>Ankur Raj:</strong> Ankur is a dedicated student with a passion for coding and technology. He excels in problem-solving and has a keen interest in web development.</p>
+        <p><strong>Vaishnavi Vimal:</strong> Vaishnavi is a talented coder who loves exploring new programming languages. She is known for her creativity and innovative project ideas.</p>
+        <p><strong>Aman Raj sharma:</strong>An innovative young student aspiring to make a big change in the field of computer science.</p>
+    </div>
+</body>
+
+</html>
